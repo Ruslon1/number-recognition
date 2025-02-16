@@ -3,7 +3,7 @@ import numpy as np
 import torch
 import training
 
-image = Image.open('path_to_image').convert('L')
+image = Image.open('../image.png').convert('L')
 image = image.resize((28, 28))
 image = np.array(image) / 255.0
 image = (image - 0.5) / 0.5

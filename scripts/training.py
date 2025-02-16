@@ -9,7 +9,7 @@ criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=0.001)
 device = torch.device('cpu')
 
-for epoch in range(2):
+for epoch in range(1):
     model.train()
     running_loss = 0.0
     for images, lables in dataset.train_loader:
@@ -27,4 +27,4 @@ for epoch in range(2):
 
     print(f"Epoch {epoch+1}, Loss: {running_loss/len(dataset.train_loader):.4f}")
 
-torch.save(model.state_dict(), 'model.pth')
+torch.save(model.state_dict(), '../model.pth')
