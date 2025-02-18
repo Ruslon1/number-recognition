@@ -22,7 +22,7 @@ else:
     start_epoch = 0
     print("Starting from scratch")
 
-for epoch in range(start_epoch, start_epoch + 10):
+for epoch in range(start_epoch, start_epoch):
     model.train()
     running_loss = 0.0
     for images, lables in dataset.train_loader:
@@ -46,3 +46,18 @@ for epoch in range(start_epoch, start_epoch + 10):
         'epoch': epoch,
         'loss': running_loss
     }, checkpoint_path)
+""" 
+model.eval()
+correct = 0
+total = 0
+with torch.no_grad():
+    for images, labels in dataset.test_loader:
+        images, labels = images.to(device), labels.to(device)
+        outputs = model(images)
+
+        _, predicted = torch.max(outputs, 1)
+        total += labels.size(0)
+        print("  " + str(labels.size(0)) + "  " + str(predicted))
+        correct += (predicted == labels).sum().item()
+
+print(f"Accuracy: {100 * correct / total:.2f}%") """
