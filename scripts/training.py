@@ -17,10 +17,8 @@ if os.path.exists(checkpoint_path):
     model.load_state_dict(checkpoint['model_state_dict'])
     optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
     start_epoch = checkpoint['epoch'] + 1
-    print(f"Resuming training from epoch {start_epoch}.")
 else:
     start_epoch = 0
-    print("Starting from scratch")
 
 for epoch in range(start_epoch, start_epoch):
     model.train()
